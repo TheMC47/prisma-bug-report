@@ -1,0 +1,21 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["relationJoins"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model main {
+  id    Int     @id @default(autoincrement())
+  other other[]
+}
+
+model other {
+  id      Int   @id @default(autoincrement())
+  main_id Int?
+  num     Float @db.Real
+  main    main? @relation(fields: [main_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
