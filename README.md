@@ -1,5 +1,7 @@
 # Bug Report for Prisma
 
+prisma/prisma#24414
+
 This a reproducible example for a bug found on prisma 5.15.0 with the preview
 feature "relationJoins".
 
